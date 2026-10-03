@@ -1,0 +1,18 @@
+[server]
+port = 8501
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+# esconde o menu de desenvolvedor/Deploy: a tela é para quem usa o bot
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#0F766E"
+backgroundColor = "#F5F8F7"
+secondaryBackgroundColor = "#E6F0ED"
+textColor = "#10302B"
+font = "sans serif"

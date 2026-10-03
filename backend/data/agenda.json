@@ -1,0 +1,30 @@
+{
+  "_comentario": "Agenda SIMULADA (dados fictícios). Índices de dias: seg, ter, qua, qui, sex, sab, dom.",
+  "antecedencia_minima_dias": 1,
+  "horizonte_max_dias": 60,
+  "horarios_por_dia_semana": {
+    "seg": ["08:00", "09:30", "11:00", "14:00", "15:30", "17:00"],
+    "ter": ["08:00", "09:30", "11:00", "14:00", "15:30", "17:00"],
+    "qua": ["08:00", "09:30", "11:00", "14:00", "15:30", "17:00"],
+    "qui": ["08:00", "09:30", "11:00", "14:00", "15:30", "17:00"],
+    "sex": ["09:30", "11:00", "14:00", "15:30"],
+    "sab": ["08:30", "10:00", "11:30"],
+    "dom": []
+  },
+  "ocupados_recorrentes": {
+    "seg": ["09:30"],
+    "ter": ["14:00"],
+    "qua": ["11:00"],
+    "qui": ["15:30"]
+  },
+  "ocupados_datas": {
+    "2026-10-13": ["08:00", "09:30", "11:00", "14:00", "15:30", "17:00"]
+  },
+  "feriados": {
+    "2026-10-12": "feriado de Nossa Senhora Aparecida",
+    "2026-11-02": "feriado de Finados",
+    "2026-11-20": "feriado da Consciência Negra",
+    "2026-12-25": "feriado de Natal",
+    "2027-01-01": "feriado de Ano Novo"
+  }
+}

@@ -1,0 +1,5 @@
+# Dependências de DESENVOLVIMENTO do frontend: chat + painel do atendente + testes.
+#   pip install -r requirements-dev.txt && python -m pytest
+-r requirements.txt
+-r requirements-atendente.txt
+pytest>=8.0,<10.0

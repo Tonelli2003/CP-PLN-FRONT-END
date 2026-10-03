@@ -1,0 +1,13 @@
+# ============================================================================
+# Frontend (Streamlit) — a "lente": chat, raio-X e métricas. Projeto INDEPENDENTE do backend
+# (outro ambiente, outro processo, outra porta): só conversa com a API por HTTP.
+#   pip install -r requirements.txt          (painel do atendente: requirements-atendente.txt)
+#
+# Validado com a suíte (34 testes + 4 de integração, que exigem o backend no ar) em streamlit 1.65 e no mínimo declarado abaixo. Python 3.11+.
+# ============================================================================
+streamlit>=1.55,<2.0             # st.navigation, st.feedback, st.html só-CSS, container(key=). 1.55 é o piso testado:
+                                 # antes dele o AppTest quebra com st.feedback vazio (bug do harness de testes do Streamlit)
+httpx>=0.27,<1.0                 # services/api_client.py (único módulo que fala HTTP)
+python-dotenv>=1.0,<2.0          # API_URL e API_KEY vêm do .env
+pandas>=2.1,<4.0                 # dados dos gráficos de métricas (usado direto em components/metrics_view.py)
+altair>=5.0,<7.0                 # gráficos de barras das métricas (já vem com o Streamlit; declarado por ser usado direto)

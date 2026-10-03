@@ -1,0 +1,241 @@
+{
+  "clinica": "Clínica Veterinária Patas & Cia",
+  "telefone": "(11) 5550-0123",
+  "topicos_fora_da_base": [
+    "cirurgia",
+    "castracao",
+    "castrar",
+    "ultrassom",
+    "raio x",
+    "radiografia",
+    "exame",
+    "exames",
+    "internacao",
+    "internar",
+    "microchip",
+    "hotel",
+    "hospedagem",
+    "creche",
+    "adestramento",
+    "racao",
+    "banho",
+    "tosa",
+    "domicilio",
+    "telemedicina",
+    "odontologia",
+    "dentista",
+    "fisioterapia",
+    "acupuntura",
+    "ecocardiograma",
+    "tomografia",
+    "ressonancia",
+    "transporte",
+    "taxi dog"
+  ],
+  "itens": [
+    {
+      "id": "horario_funcionamento",
+      "topico": "horário de funcionamento",
+      "pergunta": "Qual o horário de funcionamento?",
+      "resposta": "Atendemos de segunda a sexta, das 8h às 18h, e aos sábados, das 8h às 12h. Aos domingos e feriados a clínica fica fechada.",
+      "palavras_chave": [
+        "horario de funcionamento",
+        "horario de atendimento",
+        "funcionamento",
+        "funciona",
+        "funcionam",
+        "abre",
+        "abrem",
+        "fecha",
+        "fecham",
+        "aberto",
+        "aberta",
+        "que horas",
+        "ate que horas",
+        "horarios",
+        "domingo",
+        "feriado"
+      ]
+    },
+    {
+      "id": "endereco",
+      "topico": "endereço e estacionamento",
+      "pergunta": "Onde fica a clínica?",
+      "resposta": "Ficamos na Rua das Acácias, 123, Vila Mariana, São Paulo/SP (endereço fictício). Temos estacionamento próprio com 6 vagas, gratuito para clientes, e o metrô fica a 5 minutos a pé.",
+      "palavras_chave": [
+        "endereco",
+        "onde fica",
+        "localizacao",
+        "como chegar",
+        "chegar",
+        "onde voces ficam",
+        "onde e a clinica",
+        "estacionamento",
+        "metro",
+        "rua"
+      ]
+    },
+    {
+      "id": "valores_consulta",
+      "topico": "valores da consulta",
+      "pergunta": "Quanto custa a consulta?",
+      "resposta": "A consulta clínica geral custa R$ 150,00, e o retorno em até 15 dias é gratuito. Consultas com especialistas têm valores diferentes, que a recepção informa por telefone.",
+      "palavras_chave": [
+        "preco",
+        "precos",
+        "valor",
+        "valores",
+        "quanto custa",
+        "quanto e",
+        "quanto fica",
+        "quanto cobram",
+        "cobram",
+        "custa",
+        "custo",
+        "tabela de precos",
+        "retorno"
+      ]
+    },
+    {
+      "id": "vacinas",
+      "topico": "vacinas",
+      "pergunta": "Quais vacinas vocês aplicam e quanto custam?",
+      "resposta": "Aplicamos a V10 (R$ 120,00) e a antirrábica (R$ 60,00) para cães, e a quíntupla felina (R$ 130,00) para gatos. A idade da primeira dose e o calendário são definidos pelo veterinário na consulta. Leve a carteirinha de vacinação, se tiver.",
+      "palavras_chave": [
+        "vacina",
+        "vacinas",
+        "vacinacao",
+        "vacinar",
+        "antirrabica",
+        "v10",
+        "v8",
+        "quintupla",
+        "carteirinha",
+        "quanto custa a vacina",
+        "preco da vacina",
+        "valor da vacina",
+        "custa a vacina"
+      ]
+    },
+    {
+      "id": "formas_pagamento",
+      "topico": "formas de pagamento",
+      "pergunta": "Quais formas de pagamento são aceitas?",
+      "resposta": "Aceitamos Pix, dinheiro, cartão de débito e cartão de crédito em até 3x sem juros. No momento não trabalhamos com planos ou convênios pet.",
+      "palavras_chave": [
+        "pagamento",
+        "pagar",
+        "pix",
+        "cartao",
+        "credito",
+        "debito",
+        "parcela",
+        "parcelar",
+        "parcelamento",
+        "dinheiro",
+        "boleto",
+        "aceitam",
+        "aceita",
+        "plano",
+        "convenio",
+        "plano pet"
+      ]
+    },
+    {
+      "id": "remarcar_cancelar",
+      "topico": "remarcar ou cancelar",
+      "pergunta": "Como remarcar ou cancelar uma consulta?",
+      "resposta": "Para remarcar ou cancelar, avise com pelo menos 24 horas de antecedência pelo telefone (11) 5550-0123 ou pelo WhatsApp (11) 95550-0123. Cancelamentos fora desse prazo podem ter taxa de R$ 50,00.",
+      "palavras_chave": [
+        "remarcar",
+        "remarcacao",
+        "cancelar",
+        "cancelamento",
+        "desmarcar",
+        "mudar o horario",
+        "trocar o horario",
+        "alterar a consulta",
+        "alterar consulta",
+        "mudar a consulta",
+        "cancelo",
+        "remarco",
+        "desmarco",
+        "cancela",
+        "remarca",
+        "desmarca"
+      ]
+    },
+    {
+      "id": "primeira_consulta",
+      "topico": "o que levar na consulta",
+      "pergunta": "O que preciso levar na primeira consulta?",
+      "resposta": "Leve a carteira de vacinação (se tiver), exames anteriores e a lista de medicamentos em uso. Gatos devem vir em caixa de transporte e cães de coleira com guia. Chegue 10 minutos antes do horário.",
+      "palavras_chave": [
+        "levar",
+        "o que levar",
+        "o que preciso",
+        "documento",
+        "documentos",
+        "primeira consulta",
+        "chegar antes",
+        "caixa de transporte",
+        "guia",
+        "coleira"
+      ]
+    },
+    {
+      "id": "plantao",
+      "topico": "plantão 24h",
+      "pergunta": "Vocês têm plantão 24 horas?",
+      "resposta": "Não temos plantão 24 horas. Atendemos em horário comercial; em emergências fora desse horário, procure um hospital veterinário 24h mais próximo.",
+      "palavras_chave": [
+        "plantao",
+        "24 horas",
+        "24h",
+        "madrugada",
+        "noturno",
+        "fim de semana",
+        "vinte e quatro horas"
+      ]
+    },
+    {
+      "id": "especies",
+      "topico": "animais atendidos",
+      "pergunta": "Quais animais vocês atendem?",
+      "resposta": "Atendemos cães e gatos. Para outras espécies, como aves, répteis ou coelhos, não temos atendimento no momento.",
+      "palavras_chave": [
+        "atendem gato",
+        "atendem cachorro",
+        "atendem caes",
+        "atendem gatos",
+        "atendem coelho",
+        "atendem passaro",
+        "atendem animais",
+        "atendem hamster",
+        "especie",
+        "especies",
+        "animais exoticos",
+        "quais animais",
+        "que animais"
+      ]
+    },
+    {
+      "id": "servicos",
+      "topico": "serviços oferecidos",
+      "pergunta": "Quais serviços vocês oferecem?",
+      "resposta": "Oferecemos consulta clínica geral, vacinação, vermifugação e check-up preventivo. Para qualquer outro serviço, a recepção confirma por telefone: (11) 5550-0123.",
+      "palavras_chave": [
+        "servicos",
+        "servico",
+        "o que voces fazem",
+        "o que voces oferecem",
+        "quais servicos",
+        "oferecem",
+        "vermifugo",
+        "vermifugacao",
+        "check-up",
+        "checkup"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# ============================================================================
+# Backend (FastAPI) — o "cérebro". Dependências de EXECUÇÃO.
+#   pip install -r requirements.txt          (testes: requirements-dev.txt)
+#
+# As faixas abaixo foram validadas com a suíte (47 testes) nas duas pontas:
+#   mínimas  -> fastapi 0.110 · pydantic 2.6 · uvicorn 0.29 · httpx 0.27 · python-dotenv 1.0
+#   recentes -> fastapi 0.142 · pydantic 2.13 · uvicorn 0.54 · httpx 0.28 · python-dotenv 1.2
+# Python 3.11+.
+# ============================================================================
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.29,<1.0     # servidor ASGI (uvicorn app.main:app)
+pydantic>=2.6,<3.0               # validação de entrada e saída (v2)
+httpx>=0.27,<1.0                 # cliente HTTP do LLM (Ollama / provedor OpenAI-compatível) e do script de cenários
+python-dotenv>=1.0,<2.0          # leitura do .env

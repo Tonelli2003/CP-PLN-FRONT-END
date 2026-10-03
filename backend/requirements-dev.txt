@@ -1,0 +1,4 @@
+# Dependências de DESENVOLVIMENTO do backend: tudo do requirements.txt + testes.
+#   pip install -r requirements-dev.txt && python -m pytest
+-r requirements.txt
+pytest>=8.0,<10.0

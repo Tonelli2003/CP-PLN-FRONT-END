@@ -1,0 +1,22 @@
+# Segredos e ambientes (cada projeto tem o seu .gitignore; este é a rede de proteção na raiz)
+.env
+*.env
+!.env.example
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.pytest_tmp/
+
+# Dados de execução (sessões e log gerados ao conversar). As evidências entregues ficam em docs/evidencias/
+backend/data/runtime/*
+!backend/data/runtime/.gitkeep
+
+# Editores / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

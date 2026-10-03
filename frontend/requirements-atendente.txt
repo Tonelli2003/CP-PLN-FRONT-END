@@ -1,0 +1,11 @@
+# ============================================================================
+# Painel do atendente (2ª lente, Gradio, porta 7860). Autossuficiente: não depende do Streamlit,
+# só do cliente HTTP e da configuração. Pode ir no mesmo ambiente do chat ou em outro.
+#   pip install -r requirements-atendente.txt
+#
+# gradio>=6: o painel usa o formato de mensagens do Gradio 6 (gr.Chatbot) e passa theme/css ao launch().
+# No Gradio 5 a transcrição quebraria; por isso o piso é 6.0.
+# ============================================================================
+gradio>=6.0,<7.0
+httpx>=0.27,<1.0
+python-dotenv>=1.0,<2.0

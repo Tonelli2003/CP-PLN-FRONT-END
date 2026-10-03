@@ -1,0 +1,93 @@
+{
+  "periodo": {
+    "inicio": "2026-10-02T21:48:15-03:00",
+    "fim": "2026-10-02T21:53:13-03:00"
+  },
+  "total_conversas": 23,
+  "total_turnos_usuario": 88,
+  "taxa_contencao": 0.6957,
+  "taxa_fallback": 0.0795,
+  "taxa_handoff": 0.3043,
+  "mensagens_por_conversa": 3.83,
+  "taxa_resolucao": 0.4348,
+  "agendamentos_concluidos": 4,
+  "taxa_conclusao_agendamento": 0.4,
+  "latencia_media_ms": 3417,
+  "latencia_p95_ms": 8489,
+  "distribuicao_intencoes": {
+    "agendar": 45,
+    "faq": 10,
+    "desconhecido": 9,
+    "confirmar": 4,
+    "orientacao_medica": 3,
+    "retomar": 2,
+    "prompt_injection": 2,
+    "reclamacao": 2,
+    "agradecimento": 2,
+    "fora_de_escopo": 1,
+    "despedida": 1,
+    "menu_opcao": 1,
+    "emergencia": 1,
+    "tema_sensivel": 1,
+    "humano": 1,
+    "identidade": 1,
+    "ajuda": 1,
+    "saudacao": 1
+  },
+  "distribuicao_sentimento": {
+    "neutro": 82,
+    "negativo": 3,
+    "positivo": 3
+  },
+  "fallback_por_tipo": {
+    "nao_entendi": 5,
+    "fora_da_base": 2
+  },
+  "fallback_por_estado": {
+    "menu": 4,
+    "aceite_humano": 2,
+    "idle": 1
+  },
+  "handoff_por_motivo": {
+    "falha_repetida": 2,
+    "pedido_do_usuario": 1,
+    "tema_sensivel": 1,
+    "frustracao": 1,
+    "reclamacao": 1,
+    "emergencia": 1
+  },
+  "erros_validacao": {
+    "horario_indisponivel": 2,
+    "data_inexistente": 1,
+    "email_invalido": 1,
+    "dia_lotado": 1,
+    "clinica_fechada": 1
+  },
+  "eventos_guardrail": {
+    "output:fato_omitido": 11,
+    "output:fato_inventado": 4,
+    "input:prompt_injection": 2,
+    "input:orientacao_medica": 2,
+    "input:fora_de_escopo": 1,
+    "input:dado_sensivel": 1
+  },
+  "turnos_com_tom_de_acolhimento": 1,
+  "fonte_da_resposta": {
+    "template": 44,
+    "llm": 29,
+    "template_guardrail": 15
+  },
+  "faq_mais_consultadas": {
+    "endereco": 3,
+    "valores_consulta": 2,
+    "horario_funcionamento": 1,
+    "vacinas": 1,
+    "formas_pagamento": 1,
+    "primeira_consulta": 1,
+    "remarcar_cancelar": 1
+  },
+  "total_feedbacks": 8,
+  "csat_medio": 3.88,
+  "csat_medio_conversas_contidas": 4.8,
+  "csat_medio_conversas_transferidas": 2.33
+}
