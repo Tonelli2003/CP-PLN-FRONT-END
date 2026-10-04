@@ -206,3 +206,24 @@ def test_intencao_em_interrupcoes_dentro_do_fluxo(chat):
     chat.say("quero agendar"); chat.say("Carlos")
     assert chat.say("e o que eu disse que era meu nome mesmo?")["intent"] == "retomar"
     assert chat.say("tchau")["intent"] == "despedida"
+<<<<<<< HEAD
+=======
+
+
+def test_fora_da_base_no_meio_do_fluxo_nao_vira_erro_de_slot(chat):
+    """Pergunta fora da FAQ durante o agendamento: admite que não sabe, mantém slots e retoma a pergunta pendente."""
+    for m in ("Oi, quero marcar uma consulta pro meu cachorro", "Marina Alves", "Thor", "sexta de manhã", "11h"):
+        chat.say(m)
+    r = chat.say("Vocês fazem ultrassom?")
+    assert r["fallback"] and "não tenho" in r["reply"] and "e-mail" in r["reply"]
+    assert r["flow"]["awaiting"] == "email" and r["slots"]["horario"] == "11:00" and r["slots"]["nome_pet"] == "Thor"
+    r = chat.say("marina.alves@exemplo.com")
+    assert r["flow"]["awaiting"] == "confirmacao"
+
+
+def test_pergunta_de_data_nao_traz_exemplo_com_digitos(chat):
+    chat.say("quero marcar uma consulta")
+    chat.say("Marina Alves")
+    r = chat.say("Thor")
+    assert "15/10" not in r["reply"] and "ex.: sexta ou amanhã" in r["reply"]
+>>>>>>> 124e2bd (Atualizações no frontend e backend)

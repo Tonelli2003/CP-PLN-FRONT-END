@@ -8,12 +8,33 @@ Assistente **Duda**, da Clínica Veterinária Patas & Cia. O bot mora no **backe
 
 ### Início rápido (3 terminais)
 ```powershell
+<<<<<<< HEAD
 # terminal 1 · backend (porta 8000)         cd backend  ; ...ver 5.2
 # terminal 2 · chat Streamlit (porta 8501)  cd frontend ; ...ver 5.3
 # terminal 3 · painel do atendente (7860)   cd frontend ; ...ver 5.3 (opcional)
 ```
 Abra `http://localhost:8501` (chat, raio-X e métricas) e `http://localhost:8000/docs` (API).
 
+=======
+# terminal 1 · backend (porta 8000)
+cd backend; python -m venv .venv; .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt; copy .env.example .env      # ollama pull qwen2.5:3b (ou LLM_PROVIDER=mock)
+uvicorn app.main:app --reload --port 8000
+
+# terminal 2 · chat Streamlit (porta 8501)
+cd frontend; python -m venv .venv; .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt; copy .env.example .env
+streamlit run app.py --server.port 8501
+
+# terminal 3 · painel do atendente (porta 7860, opcional)
+cd frontend; .\.venv\Scripts\Activate.ps1
+pip install -r requirements-atendente.txt; python painel_atendente.py
+```
+Abra `http://localhost:8501` (chat, raio-X e métricas) e `http://localhost:8000/docs` (API).
+
+**Links da entrega:** repositório: **PENDENTE (colar URL)** · vídeo de demonstração (não listado): **PENDENTE (colar URL)**
+
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 ## 1. Integrantes
 | Nome | RM | Responsabilidade |
 |---|---|---|
@@ -81,7 +102,11 @@ Backend: Python · FastAPI · Pydantic · Uvicorn · pytest · Ollama. Frontend:
 
 **Modelo: `qwen2.5:3b` via Ollama (local).**
 - **Custo:** zero, sem chave de API e sem custo para quem corrige.
+<<<<<<< HEAD
 - **Latência observada (CPU/GPU: [preencher]):** média ≈ 3,4 s e p95 ≈ 8,5 s por turno (turnos de template ≈ 0 ms; turnos com LLM ≈ 4,5–9,2 s; a 1ª chamada, que carrega o modelo, levou 13,5 s).
+=======
+- **Latência observada** (hardware: **PENDENTE — informar CPU/GPU/RAM**): média ≈ 3,4 s e p95 ≈ 8,5 s por turno (turnos de template ≈ 0 ms; turnos com LLM ≈ 4,5–9,2 s; a 1ª chamada, que carrega o modelo, levou 13,5 s).
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 - **Qualidade em português:** texto fluente para frases curtas, mas um modelo de 3B omite ou inventa fatos: em 34% das verbalizações (15 de 44) o guardrail de saída rejeitou o texto e usou o texto-base, e houve falhas pontuais que passaram (uma data errada, uma frase repetida). Por isso o LLM só verbaliza e **nunca decide**.
 
 **Versões:** cada projeto tem o seu `requirements.txt`, com faixas validadas pela suíte nas versões mínima e recente (detalhes nos comentários dos arquivos): backend FastAPI ≥ 0.110 e Pydantic ≥ 2.6; frontend Streamlit ≥ 1.55; painel do atendente Gradio ≥ 6.0. Python 3.11+.
@@ -133,7 +158,11 @@ Mostra a fila de `GET /handoffs` (urgentes primeiro), o resumo estruturado e a t
 ```powershell
 cd backend
 pip install -r requirements-dev.txt
+<<<<<<< HEAD
 python -m pytest -q                   # 47 testes do backend
+=======
+python -m pytest -q                   # 49 testes do backend
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 cd ..\frontend
 pip install -r requirements-dev.txt
 python -m pytest                      # 34 testes do front (cliente HTTP, telas, painel); +4 de integração com o backend no ar
@@ -191,6 +220,10 @@ Todas as rotas, exceto `/health`, exigem o header `X-API-Key`. Documentação co
 2. **A FAQ é consulta por regra; o LLM só reescreve o texto curado.** Evita inventar serviço ou preço (T6). Um guardrail de saída compara o texto do LLM com o texto-base e, se faltar ou sobrar fato, descarta o LLM (observado: 15 rejeições em 44 verbalizações; o guardrail ainda não cobre datas `dd/mm` nem frases repetidas, ver `docs/metricas.md`).
 3. **Emergência, handoff, fallback e erros de validação são templates.** São os turnos críticos e precisam funcionar mesmo com o LLM fora do ar (demonstrado no vídeo, derrubando o Ollama).
 4. **Intenção e sentimento por regras/léxico** (auditáveis e determinísticos). O sentimento muda o comportamento: tom de acolhimento e antecipação do handoff.
+<<<<<<< HEAD
+=======
+5. **Pergunta fora da base no meio do agendamento é decidida por código.** Se o usuário pergunta algo que a FAQ não cobre enquanto o bot espera um dado (ex.: "Vocês fazem ultrassom?" na etapa do e-mail), o orquestrador registra `fora_da_base`, admite que não sabe, passa o telefone da recepção e repete a pergunta pendente, sem perder os slots e sem tratar a frase como dado inválido.
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 
 ## 9. Resultados (resumo)
 Detalhes em [`docs/metricas.md`](docs/metricas.md) e [`docs/evidencias/`](docs/evidencias/).
@@ -222,12 +255,42 @@ Veja a tabela da seção 1. Em resumo:
 - **Vinícius:** `analytics/`, `scripts/`, `painel_atendente.py`, `docs/`, prints e vídeo.
 
 ## 12. Declaração de uso de IA generativa
+<<<<<<< HEAD
 Este projeto foi desenvolvido com apoio de IA generativa (**Claude, da Anthropic**), usada para gerar a primeira versão do código do backend (API, orquestrador, NLU, guardrails, analytics), dos 47 testes automatizados do backend e dos documentos, e também o **frontend** (Streamlit, painel Gradio, cliente de API) e seus 38 testes. O grupo:
 - configurou e executou o ambiente (Python, Ollama com `qwen2.5:3b`) e rodou os 47 testes;
 - executou os 23 cenários com o LLM real e analisou o log (`turns.jsonl`), incluindo os 15 turnos rejeitados pelo guardrail de saída;
 - [preencher: o que revisou, alterou ou decidiu no código, no prompt e nos dados, e como validou que compreende cada parte].
 
 Qualquer integrante consegue explicar o código, o fluxo de um turno e as decisões acima.
+=======
+Este projeto foi desenvolvido com apoio de IA generativa: o **Claude (Anthropic)**, usado por chat. Declaramos abaixo onde ela foi usada, o que o grupo fez e o que veio de bibliotecas e modelos prontos.
+
+### 12.1 Onde a IA foi usada
+| Parte | Uso da IA |
+|---|---|
+| **Backend** (`backend/app/`) | Geração da primeira versão do código: API e rotas, schemas Pydantic, autenticação por `X-API-Key`, orquestrador, NLU, sentimento, extratores de slots, guardrails, handoff, memória, cliente do LLM e analytics. |
+| **Frontend** (`frontend/`) | Geração da primeira versão do Streamlit (chat, raio-X, métricas), do painel do atendente em Gradio e do `services/api_client.py`. |
+| **Testes** | Geração dos testes automatizados: 49 no backend (incluindo o roteiro T1–T8) e 38 no frontend (34 unitários e de tela + 4 de integração com a API real). |
+| **Documentação** | Primeira versão do README, da ficha do bot, do relatório de métricas, do roteiro do vídeo e do script `run_scenarios.py`. |
+| **Revisão final (04/10/2026)** | Conferência do projeto contra o enunciado e correções: pergunta fora da base no meio do agendamento deixou de ser tratada como dado inválido, o exemplo fixo de data da pergunta (`15/10`) foi removido, os prints foram renomeados e a documentação foi ajustada. |
+
+### 12.2 O que o grupo fez
+- Definiu o caso (clínica veterinária, dados 100% fictícios), a persona Duda e a divisão de responsabilidades da seção 11.
+- Configurou o ambiente (Python e Ollama com `qwen2.5:3b`), executou os testes automatizados e subiu backend, chat e painel do atendente em processos separados.
+- Executou os 23 cenários (T1–T8 e 16 variadas) com o **LLM real**, analisou o log por turno (`turns.jsonl`) e examinou os 15 turnos em que o guardrail de saída rejeitou o texto do modelo. Dessa análise saíram o insight e a proposta de melhoria de `docs/metricas.md`.
+- Tirou as capturas de tela de `docs/prints/` e gravou o vídeo de demonstração.
+- Cada integrante é responsável por explicar os módulos listados na sua linha da seção 1 e o fluxo de um turno (guardrails → NLU e sentimento → regra/FAQ → voz → log).
+
+### 12.3 O que é próprio e o que veio de bibliotecas e modelos prontos
+| Origem | O que é |
+|---|---|
+| **Código do projeto** | Orquestrador, NLU por regras, sentimento por léxico PT (com negação e intensificadores), extratores e validação de slots, agenda simulada, FAQ por regra, guardrails de entrada e de saída, handoff com resumo, janela de memória, log e métricas, e as telas. Nenhum modelo de NLU ou de sentimento pronto é usado. |
+| **Bibliotecas** | FastAPI, Pydantic, Uvicorn, httpx, python-dotenv, pytest, Streamlit, Gradio, pandas e Altair. |
+| **Modelo pronto** | `qwen2.5:3b`, executado localmente pelo Ollama, usado só para reescrever textos-base já decididos pelo código. |
+
+### 12.4 Limites e verificação
+O código gerado por IA foi validado pelos testes automatizados (sem LLM) e pela execução real dos cenários, não apenas por leitura. Mesmo assim, a IA pode errar: o próprio modelo local teve 34% das saídas rejeitadas pelo guardrail e deixou passar uma data errada (ver `docs/metricas.md`). Por isso o LLM só verbaliza e nunca decide.
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 
 ## 13. Estrutura de pastas
 ```
@@ -243,7 +306,11 @@ prosa-bot/
 Os arquivos `.env` (com chaves) **não** devem ser versionados; só os `.env.example` de `backend/` e `frontend/`.
 
 ## Capturas de tela
+<<<<<<< HEAD
 Em [`docs/prints/`](docs/prints/): chat com raio-X, página de métricas, `/docs` da API e painel do atendente (ver a lista em `docs/prints/LEIAME.md`).
+=======
+Em [`docs/prints/`](docs/prints/) (índice em `LEIAME.md`): chat com raio-X (`01`), handoff (`02`), página Métricas (`03`), `/docs` da API (`04`), painel do atendente (`05`), front com a API fora do ar (`06`) e execução dos testes do front e do backend (`07` e `08`).
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 
 ## 14. Solução de problemas
 | Sintoma | Causa provável |

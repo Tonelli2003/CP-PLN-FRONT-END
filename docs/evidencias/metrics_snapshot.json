@@ -1,7 +1,12 @@
 {
   "periodo": {
+<<<<<<< HEAD
     "inicio": "2026-10-02T21:48:15-03:00",
     "fim": "2026-10-02T21:53:13-03:00"
+=======
+    "inicio": "2026-10-04T16:56:38-03:00",
+    "fim": "2026-10-04T17:01:37-03:00"
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
   },
   "total_conversas": 23,
   "total_turnos_usuario": 88,
@@ -12,8 +17,13 @@
   "taxa_resolucao": 0.4348,
   "agendamentos_concluidos": 4,
   "taxa_conclusao_agendamento": 0.4,
+<<<<<<< HEAD
   "latencia_media_ms": 3417,
   "latencia_p95_ms": 8489,
+=======
+  "latencia_media_ms": 3425,
+  "latencia_p95_ms": 8089,
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
   "distribuicao_intencoes": {
     "agendar": 45,
     "faq": 10,
@@ -50,11 +60,19 @@
   },
   "handoff_por_motivo": {
     "falha_repetida": 2,
+<<<<<<< HEAD
     "pedido_do_usuario": 1,
     "tema_sensivel": 1,
     "frustracao": 1,
     "reclamacao": 1,
     "emergencia": 1
+=======
+    "reclamacao": 1,
+    "pedido_do_usuario": 1,
+    "frustracao": 1,
+    "emergencia": 1,
+    "tema_sensivel": 1
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
   },
   "erros_validacao": {
     "horario_indisponivel": 2,
@@ -64,18 +82,31 @@
     "clinica_fechada": 1
   },
   "eventos_guardrail": {
+<<<<<<< HEAD
     "output:fato_omitido": 11,
+=======
+    "output:fato_omitido": 9,
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
     "output:fato_inventado": 4,
     "input:prompt_injection": 2,
     "input:orientacao_medica": 2,
     "input:fora_de_escopo": 1,
+<<<<<<< HEAD
+=======
+    "output:sem_pergunta": 1,
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
     "input:dado_sensivel": 1
   },
   "turnos_com_tom_de_acolhimento": 1,
   "fonte_da_resposta": {
     "template": 44,
+<<<<<<< HEAD
     "llm": 29,
     "template_guardrail": 15
+=======
+    "llm": 30,
+    "template_guardrail": 14
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
   },
   "faq_mais_consultadas": {
     "endereco": 3,

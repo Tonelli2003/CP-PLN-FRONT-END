@@ -38,7 +38,11 @@ SLOT_ORDER = ["nome_tutor", "nome_pet", "data", "horario", "email"]
 SLOT_DESC = {
     "nome_tutor": ("o seu nome", "Pode me dizer só o seu nome? (ex.: Marina Alves)"),
     "nome_pet": ("o nome do pet", "Pode digitar só o nome dele? (ex.: Thor)"),
+<<<<<<< HEAD
     "data": ("a data", "Pode me dizer o dia? (ex.: sexta, 15/10 ou amanhã)"),
+=======
+    "data": ("a data", "Pode me dizer o dia? (ex.: sexta ou amanhã)"),
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
     "horario": ("o horário", "Pode me dizer qual horário prefere? (ex.: 9h30)"),
     "email": ("o e-mail", "Pode digitar de novo? (ex.: nome@exemplo.com) Ou responda “pular”."),
     "confirmacao": ("a sua resposta", "Responda “sim” para confirmar ou “não” para mudar."),
@@ -366,7 +370,11 @@ class Orchestrator:
         if aw == "horario" and not has_data and X.is_no(norm):
             s.slots["data"] = None
             s.offered_times, s.offered_date, s.awaiting = [], None, "data"
+<<<<<<< HEAD
             d.reply = prefix + "Sem problema! Qual outra data você prefere? (ex.: sexta, 15/10 ou amanhã)"
+=======
+            d.reply = prefix + "Sem problema! Qual outra data você prefere? (ex.: sexta ou amanhã)"
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
             return
 
         if has_data:
@@ -395,6 +403,13 @@ class Orchestrator:
             s.closed, s.flow, s.awaiting = True, "idle", None
             d.reply = prefix + R.despedida()
             return
+<<<<<<< HEAD
+=======
+        # pergunta de domínio fora da base no meio do fluxo: admite que não sabe e mantém o agendamento (não é erro de slot)
+        if self.faq.topico_fora_da_base(raw) or (
+                len(tokens(norm)) >= 3 and ("?" in raw or QUESTION_START.match(norm)) and aw not in ("nome_tutor", "nome_pet")):
+            return self._fallback(s, d, raw, "fora_da_base", slot_reply=prefix + R.fora_da_base_no_fluxo(pending))
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
         # não entendi o dado esperado
         desc, ex_txt = SLOT_DESC.get(aw or "data")
         s.slot_attempts[aw or "data"] = s.slot_attempts.get(aw or "data", 0) + 1
@@ -476,7 +491,11 @@ class Orchestrator:
             return "qual é o seu e-mail? (ou responda “pular”)"
         if aw == "confirmacao":
             return R.confirm(s.slots)
+<<<<<<< HEAD
         return "para qual dia você gostaria da consulta? (ex.: sexta, 15/10 ou amanhã)"
+=======
+        return "para qual dia você gostaria da consulta? (ex.: sexta ou amanhã)"
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 
     def _advance(self, s, d, newly: list, errors: list, prefix: str, empathic: bool) -> None:
         ack = f"Prazer, {s.slots['nome_tutor']}! " if "nome_tutor" in newly and s.slots.get("nome_tutor") else ""

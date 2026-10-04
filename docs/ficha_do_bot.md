@@ -6,7 +6,11 @@
 | **Domínio** | Clínica veterinária (dados fictícios). Troca de domínio = editar `data/faq.json`, `data/agenda.json`, `prompts/system_prompt.md` e `core/responses.py` |
 | **Objetivo** | (1) agendar consulta, (2) responder FAQ, (3) transferir para humano |
 | **Modelo** | `qwen2.5:3b` via Ollama (local, custo zero). Trocável por `.env` (`ollama` / `openai_compat` / `mock`) em `app/llm/client.py` — único ponto de acesso ao LLM |
+<<<<<<< HEAD
 | **Latência observada (LLM real)** | média **≈ 3,4 s** e p95 **≈ 8,5 s** por turno (23 conversas, 88 turnos; hardware: [preencher CPU/GPU/RAM]). Turnos de template ≈ 0 ms; turnos com LLM ≈ 4,5–9,2 s; 1ª chamada (carga do modelo) 13,5 s |
+=======
+| **Latência observada (LLM real)** | média **≈ 3,4 s** e p95 **≈ 8,5 s** por turno (23 conversas, 88 turnos; hardware: **PENDENTE — grupo informar CPU/GPU/RAM da máquina que rodou o Ollama**). Turnos de template ≈ 0 ms; turnos com LLM ≈ 4,5–9,2 s; 1ª chamada (carga do modelo) 13,5 s |
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 
 ## 1. O que a Duda faz e não faz
 | Faz | Não faz |
@@ -25,7 +29,11 @@ Transcrição real (`session_id 6aea339d2a5f`, `docs/evidencias/transcricoes.md`
 |---|---|---|---|
 | 1 | Oi, quero marcar uma consulta pro meu cachorro | Claro! Para começar, qual é o seu nome? | especie |
 | 2 | Marina Alves | Prazer, Marina! Agora, qual é o nome do seu cachorro? | + nome_tutor |
+<<<<<<< HEAD
 | 3 | Thor | Ótimo, Thor! Para qual dia você gostaria da consulta? (ex.: sexta, 15/10 ou amanhã) | + nome_pet |
+=======
+| 3 | Thor | Ótimo, Thor! Para qual dia você gostaria da consulta? (ex.: sexta ou amanhã) | + nome_pet |
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 | 4 | sexta de manhã | Para sexta-feira, 09/10, tenho 9h30 ou 11h. Qual prefere? | + data |
 | 5 | 11h | Entendido! Para sexta-feira, 09/10, às 11h, seu e-mail é? (se preferir não informar, responda "pular") | + horario |
 | 6 | marina.alves@exemplo.com | Só confirmando: consulta do Thor (tutor(a): Marina Alves), sexta-feira, 09/10/2026 às 11h. E-mail: marina.alves@exemplo.com. Posso confirmar? (sim/não) | + email |
@@ -42,14 +50,53 @@ Transcrição real (`session_id 65323caf8a5b`):
 | 2 | sei lá, umas coisas | Ainda não consegui entender, e peço desculpas. Prefere falar com um atendente da clínica? Responda "sim" e eu transfiro, ou me diga de outro jeito o que precisa… *(2ª falha seguida: oferta de humano)* |
 | 3 | sim | Peço desculpas por não ter conseguido ajudar. Vou transferir você para um atendente humano, com um resumo do que conversamos. Protocolo: **HO-1281B**… *(handoff `falha_repetida`)* |
 
+<<<<<<< HEAD
 Se o usuário não aceitar a oferta e falhar de novo, a 3ª falha seguida também abre o handoff (E15). Pergunta plausível fora da base (T6, "Vocês fazem ultrassom?") **não inventa**: a Duda diz que não tem a informação com segurança, passa o telefone da recepção e oferece o menu. Erros de validação (`31/02`, `marina@`) **não** contam como fallback: o bot pede o dado de novo sem perder os outros slots.
+=======
+Se o usuário não aceitar a oferta e falhar de novo, a 3ª falha seguida também abre o handoff (E15). Pergunta plausível fora da base (T6, "Vocês fazem ultrassom?") **não inventa**: a Duda diz que não tem a informação com segurança, passa o telefone da recepção e oferece o menu. Erros de validação (`31/02`, `marina@`) **não** contam como fallback: o bot pede o dado de novo sem perder os outros slots. Uma pergunta fora da base **no meio do agendamento** (ex.: "Vocês fazem ultrassom?" na etapa do e-mail) é tratada como `fora_da_base`: a Duda admite que não sabe, passa o telefone e retoma a pergunta pendente, sem perder slots (teste `test_fora_da_base_no_meio_do_fluxo_nao_vira_erro_de_slot`).
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 
 ## 4. Handoff e resumo (T7)
 Transcrição real (`session_id f9d5034b5868`): o usuário escreve "Isso é um absurdo, já é a terceira vez que ninguém me responde!" e a Duda responde: "Sinto muito pela experiência, você tem razão em esperar um atendimento melhor. Estou transferindo agora para um atendente humano e já deixei um resumo para você não precisar repetir tudo. Protocolo: **HO-5DD73**…" (sentimento `negativo`, handoff `reclamacao`). Mensagens seguintes entram em **modo de espera** e são anexadas ao atendimento.
 
 Gatilhos: emergência (prioridade **alta**, resposta com orientação de levar o pet a um hospital 24h e protocolo), luto/eutanásia, reclamação/cobrança, pedido explícito, frustração forte (polaridade ≤ −0,7), 2 mensagens negativas seguidas, 3 falhas seguidas (na 2ª, oferece humano). A fila fica em `GET /handoffs` (urgentes primeiro).
 
+<<<<<<< HEAD
 **Resumo estruturado entregue ao atendente:** protocolo, motivo, prioridade, intenção, dados coletados (slots), pendências, relato do usuário, ações já realizadas e sentimento. Exemplo real (retorno de `GET /handoffs` para o protocolo HO-5DD73): [colar aqui o JSON retornado].
+=======
+**Resumo estruturado entregue ao atendente:** protocolo, motivo, prioridade, intenção, dados coletados (slots), pendências, relato do usuário, ações já realizadas e sentimento. Exemplo do retorno de `GET /handoffs` para a mesma frase do T7 (reexecutado em 04/10/2026 com `LLM_PROVIDER=mock`; a estrutura é idêntica à do LLM real, pois o handoff é template):
+
+```json
+{
+  "session_id": "a4b6d7fdbcd0",
+  "protocol": "HO-366BA",
+  "reason": "reclamacao",
+  "priority": "normal",
+  "created_at": "2026-10-04T16:12:00-03:00",
+  "summary": {
+    "protocolo": "HO-366BA",
+    "motivo": "Reclamação ou problema de cobrança/atendimento",
+    "motivo_codigo": "reclamacao",
+    "prioridade": "normal",
+    "intencao": "indefinida",
+    "dados_coletados": {},
+    "pendencias_do_agendamento": [],
+    "relato": "Isso é um absurdo, já é a terceira vez que ninguém me responde!",
+    "acoes_realizadas": [
+      "Saudação e apresentação das capacidades",
+      "Handoff acionado: reclamacao"
+    ],
+    "sentimento": {
+      "label": "negativo",
+      "polaridade": -0.99
+    },
+    "turnos_do_usuario": 1,
+    "criado_em": "2026-10-04T16:12:00-03:00"
+  },
+  "notes": []
+}
+```
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 
 ## 5. Regra × LLM (decisões justificadas)
 Princípio: **o código decide, o LLM verbaliza.**
@@ -93,7 +140,11 @@ Log JSONL por turno → `GET /metrics` (contenção, fallback, handoff, msgs/con
 - NLU por regras: cobre bem o vocabulário previsto; gírias e erros de digitação fortes caem em fallback.
 - FAQ por palavras-chave, sem busca semântica (a função `buscar_faq` está isolada para trocar por RAG no próximo módulo).
 - Sentimento por léxico: não capta ironia.
+<<<<<<< HEAD
 - `qwen2.5:3b` omite fatos com frequência (34% das saídas rejeitadas) e, em casos isolados, passou pelo guardrail com data errada, frase repetida ou texto incoerente (ver `docs/metricas.md`). A latência (média ≈ 3,4 s; p95 ≈ 8,5 s em [hardware]) pesa em CPU.
+=======
+- `qwen2.5:3b` omite fatos com frequência (34% das saídas rejeitadas) e, em casos isolados, passou pelo guardrail com data errada, frase repetida ou texto incoerente (ver `docs/metricas.md`). A latência (média ≈ 3,4 s; p95 ≈ 8,5 s no hardware do grupo, a informar) pesa em CPU.
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 - Sessões em arquivos JSON: adequado ao trabalho, não a produção em escala.
 - CSAT do relatório de métricas é simulado; a amostra é pequena e roteirizada.
 - Dados (endereço, preços, telefones) fictícios.

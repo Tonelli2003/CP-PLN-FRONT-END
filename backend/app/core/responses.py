@@ -85,6 +85,15 @@ def fora_da_base() -> str:
             "ou eu posso:\n1. Agendar uma consulta\n2. Responder outra dúvida\n3. Chamar um atendente\nO que prefere?")
 
 
+<<<<<<< HEAD
+=======
+def fora_da_base_no_fluxo(pending: str) -> str:
+    """Pergunta de domínio fora da FAQ no meio do agendamento: admite, não inventa e NÃO perde o fluxo."""
+    return (f"Essa informação eu não tenho com segurança, e prefiro não inventar. Você pode ligar para a recepção em {TEL}. "
+            f"Voltando ao agendamento: {pending}")
+
+
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 def oferta_humano() -> str:
     return ("Ainda não consegui entender, e peço desculpas. Prefere falar com um atendente da clínica? "
             "Responda “sim” e eu transfiro, ou me diga de outro jeito o que precisa (por exemplo: “quero marcar uma consulta”).")
@@ -167,7 +176,11 @@ def ask_pet(nome: str | None, especie: str | None) -> str:
 
 def ask_data(pet: str | None) -> str:
     pre = f"Ótimo, {pet}! " if pet else ""
+<<<<<<< HEAD
     return f"{pre}Para qual dia você gostaria da consulta? (ex.: sexta, 15/10 ou amanhã)"
+=======
+    return f"{pre}Para qual dia você gostaria da consulta? (ex.: sexta ou amanhã)"
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
 
 
 def offer_times(iso: str, times: list[str]) -> str:
@@ -241,7 +254,11 @@ def retomar_nome(nome: str) -> str:
 def erro_validacao(code: str, **kw) -> str:
     raw = kw.get("raw") or ""
     if code == "data_inexistente":
+<<<<<<< HEAD
         return f"A data “{raw}” não existe no calendário. Pode me informar outra data? (ex.: sexta, 15/10 ou amanhã)"
+=======
+        return f"A data “{raw}” não existe no calendário. Pode me informar outra data? (ex.: sexta ou amanhã)"
+>>>>>>> 124e2bd (Atualizações no frontend e backend)
     if code == "data_passada":
         return "Essa data já passou. Para qual dia futuro você gostaria da consulta?"
     if code == "data_hoje":
